@@ -9,6 +9,6 @@ s = 1
     print 'fuckk'
 
 i = 0
-直到 i < 100:
+当 i < 100:
     print i
     i += 1
