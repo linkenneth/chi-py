@@ -7,17 +7,29 @@ python = subprocess.Popen(["python"],
                           stdout = subprocess.PIPE)
 
 dictionary = OrderedDict([
+    [ ur'否则如果', 'elif' ],
     [ ur'如果', 'if' ],
     [ ur'否则', 'else' ],
-    [ ur'直到', 'while' ],
+    [ ur'当', 'while' ],
     [ ur'用', 'with' ],
+    [ ur'返回', 'return' ],
+    [ ur'为', 'as' ],
+    [ ur'总和', 'sum' ],
+    [ ur'和', 'and' ],
+    [ ur'或', 'or' ],
+    [ ur'循环', 'for' ],
     [ ur'是', 'is' ],
+    [ ur'真', 'True' ],
+    [ ur'假', 'False' ],
     [ ur'加入', 'import' ],
+    [ ur'定义', 'def' ],
+    [ ur'类', 'class' ],
     [ ur'不', 'not' ],
     [ ur'于', 'in' ],
     [ ur'在', 'in' ],
+    [ ur'打印', 'print' ],
+    [ ur'时间', 'time' ],
     [ ur'范围', 'range' ],
-    [ ur'定义', 'def' ],
     [ ur'一箭双雕\((.*?),\s*(.*?)\)',
       "__chi_py_p = __chi_py_Pool(5); __chi_py_p.map(\\1, \\2)" ]
 ])
@@ -49,8 +61,9 @@ while True:
             chi_idents[ident] = "__chi_py_v" + str(v)
             v += 1
         line = line.replace(ident, chi_idents[ident])
-    print line
+    print line,
     print >>python.stdin, line.encode('utf-8')
 
 python.stdin.close()
 print python.stdout.read(),
+
